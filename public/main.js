@@ -39,3 +39,19 @@ async function flipMult() {
 // Enter number and press button to activate coin flip series
 
 // Guess a flip by clicking either heads or tails button
+const guessFlip = document.getElementById("guessnav")
+guessFlip.addEventListener("click", flipGuess)
+
+async function flipGuess() {
+
+    const theURL = document.baseURI + "app/flip/call/" + 
+
+    await fetch(theURL)
+        .then(function(response) {
+            return response.json()
+        })
+            .then(function(result){
+                document.getElementById("multi").innerHTML = result.raw
+            })
+    
+}
