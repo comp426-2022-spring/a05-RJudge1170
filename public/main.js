@@ -19,7 +19,22 @@ async function flipOne() {
     
 }
 // Flip multiple coins and show coin images in table as well as summary results
+const multFlips = document.getElementById("multinav")
+multFlips.addEventListener("click", flipMult)
 
+async function flipMult() {
+
+    const theURL = document.baseURI + "app/flips/10"
+
+    await fetch(theURL)
+        .then(function(response) {
+            return response.json()
+        })
+            .then(function(result){
+                document.getElementById("multi").innerHTML = result.raw
+            })
+    
+}
 
 // Enter number and press button to activate coin flip series
 
