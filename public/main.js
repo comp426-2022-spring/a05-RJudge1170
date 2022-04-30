@@ -44,14 +44,20 @@ guessFlip.addEventListener("click", flipGuess)
 
 async function flipGuess() {
 
-    const theURL = document.baseURI + "app/flip/call/" + 
+    // const theDiv = document.getElementById("guess")
+    // var input = div.querySelector('.choice');
+    // var value = input.value
+
+    const theURL = document.baseURI + "app/flip/call/" + "heads"
+
+    // document.getElementById("guess").innerHTML = value
 
     await fetch(theURL)
         .then(function(response) {
             return response.json()
         })
             .then(function(result){
-                document.getElementById("multi").innerHTML = result.raw
+                document.getElementById("guess").innerHTML = result.result
             })
     
 }
