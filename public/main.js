@@ -37,6 +37,22 @@ async function flipMult() {
 }
 
 // Enter number and press button to activate coin flip series
+const customMulti = document.getElementById("multinav")
+singleFlip.addEventListener("click", flipCust)
+
+async function flipCust() {
+
+    const theURL = document.baseURI + "app/flips/10"
+
+    await fetch(theURL)
+        .then(function(response) {
+            return response.json()
+        })
+            .then(function(result){
+                document.getElementById("multi").innerHTML = result.flip
+            })
+    
+}
 
 // Guess a flip by clicking either heads or tails button
 const guessFlip = document.getElementById("guessnav")
